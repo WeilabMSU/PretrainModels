@@ -219,19 +219,20 @@ CUDA_VISIBLE_DEVICES=0 python "./bt_pro/train.py" \
 - Step5, generate BT-FPs from finetuned model
 
 ```shell
+cp "./examples/models/dict.txt" "./examples/data/classification_example/"
 python "./bt_pro/generate_bt_fps.py" \
  --model_name_or_path './examples/models/finetuned_model_classification/' \  # the path of foler, which contains pre-trained model
  --checkpoint_file "checkpoint_best.pt" \  # the name of pre-trained model
- --data_name_or_path  "./examples/models/" \  # the folder contains dict.txt
- --dict_file "./examples/models/dict.txt" \  #  can just use the pretrained dict.txt
+ --data_name_or_path  "./examples/data/classification_example/" \  # the folder contains input0
+ --dict_file "./examples/data/classification_example/dict.txt" \  #  can just use the pretrained dict.txt
  --target_file "./examples/data/classification_example/classification_train_canonical.smi" \  # the path of target downstream dataset
  --save_feature_path "./examples/data/classification_example/classification_train_canonical.npy"  # the save path of generated features.
  
 python "./bt_pro/generate_bt_fps.py" \
  --model_name_or_path './examples/models/finetuned_model_classification/' \  # the path of foler, which contains pre-trained model
  --checkpoint_file "checkpoint_best.pt" \  # the name of pre-trained model
- --data_name_or_path  "./examples/models/" \  # the folder contains dict.txt
- --dict_file "./examples/models/dict.txt" \  #  can just use the pretrained dict.txt
+ --data_name_or_path  "./examples/data/classification_example/" \  # the folder contains dict.txt
+ --dict_file "./examples/data/classification_example/dict.txt" \  #  can just use the pretrained dict.txt
  --target_file "./examples/data/classification_example/classification_valid_canonical.smi" \
  --save_feature_path "./examples/data/classification_example/classification_valid_canonical.npy"
 # if you have test.smi, generating the feature from fine-tuned model fallow the same way.
@@ -240,7 +241,7 @@ python "./bt_pro/generate_bt_fps.py" \
 
 Note:
 - The comments  of the command line needs to be removed when used.
-- Don't leave empty space after '\' symbol.
+- Don't leave empty space after `\` symbol.
 - The entire process took less than 30 minutes.
 
 ## Repeatability
