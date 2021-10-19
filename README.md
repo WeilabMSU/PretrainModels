@@ -239,9 +239,9 @@ Note:
 
 ## Repeatability
 
-In this work, all 5 regression datasets and 5 classification datasets are publicly avaliable in https://weilab.math.msu.edu/DataLibrary/2D/. For each data set, we divide the data into training set, validation set and test set according to the ratio of 8:1:1. The above process is repeated ten times according to different random numbers. The data splitting for all experiments is saved in `./util_tools/repeat_10_random/`
-
-The pre-training datasets used in this work is the combination of ChEMBL27, PubChem, and ZINC13 3D datasets, which is publicly available at https://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBLdb/releases/chembl_27/, https://ftp.ncbi.nih.gov/pubchem/Compound/, and http://files.docking.org/3D/, respectively.
+- In this work, all 5 regression datasets and 5 classification datasets are publicly avaliable in https://weilab.math.msu.edu/DataLibrary/2D/.
+- For each data set, we divide the data into training set, validation set and test set according to the ratio of 8:1:1. The above process is repeated ten times according to different random numbers. The data splitting for all experiments is saved in `./util_tools/repeat_10_random/`
+- The pre-training datasets used in this work is the combination of ChEMBL27, PubChem, and ZINC13 3D datasets, which is publicly available at https://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBLdb/releases/chembl_27/, https://ftp.ncbi.nih.gov/pubchem/Compound/, and http://files.docking.org/3D/, respectively.
 
 ## License
 
