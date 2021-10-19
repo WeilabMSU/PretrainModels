@@ -128,7 +128,7 @@ num_sent_pergpu=16
 updata_freq=1
 num_warmup=`expr $num_epoch \* $train_data_len / ${num_sent_pergpu} / $updata_freq / 10 `
 max_num_update=100000
-CUDA_VISIBLE_DEVICES=0 python "./bt_pro/train.py" \
+CUDA_VISIBLE_DEVICES=0 python "./bt_pro/train.py" \  # if just want to run in cpu, remove 'CUDA_VISIBLE_DEVICES=0'
  "./examples/data/regression_example/" \  # data folder, which contains 'input0' and 'label' folders
  --save-dir './examples/models/finetuned_model_regression' \  # the save path of finetuned model
  --train-subset train --valid-subset valid \
@@ -139,19 +139,20 @@ CUDA_VISIBLE_DEVICES=0 python "./bt_pro/train.py" \
 - Step4, generate BT-FPs from finetuned model
 
 ```shell
+cp "./examples/models/dict.txt" "./examples/data/regression_example/"
 python "./bt_pro/generate_bt_fps.py" \
  --model_name_or_path './examples/models/finetuned_model_regression/' \  # the path of foler, which contains pre-trained model
  --checkpoint_file "checkpoint_best.pt" \  # the name of pre-trained model
- --data_name_or_path  "./examples/models/" \  # the folder contains dict.txt
- --dict_file "./examples/models/dict.txt" \  #  can just use the pretrained dict.txt
+ --data_name_or_path  "./examples/data/regression_example/" \  # the folder contains input0
+ --dict_file "./examples/data/regression_example/dict.txt" \  #  can just use the pretrained dict.txt
  --target_file "./examples/data/regression_example/regression_train_canonical.smi" \  # the path of target downstream dataset
  --save_feature_path "./examples/data/regression_example/regression_train_canonical.npy"  # the save path of generated features.
  
 python "./bt_pro/generate_bt_fps.py" \
  --model_name_or_path './examples/models/finetuned_model_regression/' \  # the path of foler, which contains pre-trained model
  --checkpoint_file "checkpoint_best.pt" \  # the name of pre-trained model
- --data_name_or_path  "./examples/models/" \  # the folder contains dict.txt
- --dict_file "./examples/models/dict.txt" \  #  can just use the pretrained dict.txt
+ --data_name_or_path  "./examples/data/regression_example/" \  # the folder contains input0
+ --dict_file "./examples/data/regression_example/dict.txt" \  #  can just use the pretrained dict.txt
  --target_file "./examples/data/regression_example/regression_valid_canonical.smi" \
  --save_feature_path "./examples/data/regression_example/regression_valid_canonical.npy"
 # if you have test.smi, generating the feature from fine-tuned model fallow the same way.
@@ -205,7 +206,7 @@ num_sent_pergpu=16
 updata_freq=1
 num_warmup=`expr $num_epoch \* $train_data_len / ${num_sent_pergpu} / $updata_freq / 10 `
 max_num_update=100000
-CUDA_VISIBLE_DEVICES=0 python "./bt_pro/train.py" \
+CUDA_VISIBLE_DEVICES=0 python "./bt_pro/train.py" \  # if just want to run in cpu, remove 'CUDA_VISIBLE_DEVICES=0'
  "./examples/data/classification_example/" \  # data folder, which contains 'input0' and 'label' folders
  --save-dir './examples/models/finetuned_model_classification' \  # the save path of finetuned model
  --train-subset train --valid-subset valid \
@@ -231,7 +232,7 @@ python "./bt_pro/generate_bt_fps.py" \
 python "./bt_pro/generate_bt_fps.py" \
  --model_name_or_path './examples/models/finetuned_model_classification/' \  # the path of foler, which contains pre-trained model
  --checkpoint_file "checkpoint_best.pt" \  # the name of pre-trained model
- --data_name_or_path  "./examples/data/classification_example/" \  # the folder contains dict.txt
+ --data_name_or_path  "./examples/data/classification_example/" \  # # the folder contains input0
  --dict_file "./examples/data/classification_example/dict.txt" \  #  can just use the pretrained dict.txt
  --target_file "./examples/data/classification_example/classification_valid_canonical.smi" \
  --save_feature_path "./examples/data/classification_example/classification_valid_canonical.npy"
