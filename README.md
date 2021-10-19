@@ -211,7 +211,7 @@ CUDA_VISIBLE_DEVICES=0 python "./bt_pro/train.py" \
  --train-subset train --valid-subset valid \
  --restore-file './examples/models/checkpoint_best.pt' \  # load the pre-trained model
  --task sentence_prediction --num-classes 2 \  # the number of classification
- --regression-target --init-token 0 --best-checkpoint-metric accuracy \
+ --init-token 0 --best-checkpoint-metric accuracy \
  --maximize-best-checkpoint-metric \
  --arch roberta_base --bpe smi --encoder-attention-heads 8 --encoder-embed-dim 512 --encoder-ffn-embed-dim 1024 --encoder-layers 8 --dropout 0.1 --attention-dropout 0.1 --criterion sentence_prediction --max-positions 256 --truncate-sequence --skip-invalid-size-inputs-valid-test --optimizer adam --adam-betas '(0.9,0.999)' --adam-eps 1e-6 --clip-norm 0.0 --lr-scheduler polynomial_decay --lr 0.0001 --warmup-updates ${num_warmup} --total-num-update  ${max_num_update} --max-update ${max_num_update} --max-epoch ${num_epoch} --weight-decay 0.1 --log-format simple --reset-optimizer --reset-dataloader --reset-meters --no-epoch-checkpoints --no-last-checkpoints --no-save-optimizer-state --find-unused-parameters --log-interval 5 --max-sentences ${num_sent_pergpu} --update-freq ${updata_freq} --required-batch-size-multiple 1 --ddp-backend no_c10d
 ```
@@ -237,8 +237,10 @@ python "./bt_pro/generate_bt_fps.py" \
 # if you have test.smi, generating the feature from fine-tuned model fallow the same way.
 
 ```
+
 Note:
 - The comments  of the command line needs to be removed when used.
+- Don't leave empty space after '\' symbol.
 - The entire process took less than 30 minutes.
 
 ## Repeatability
