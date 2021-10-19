@@ -8,6 +8,10 @@ Source code of the paper "Extracting Predictive Representations from Hundreds of
 
 ---
 
+[toc]
+
+---
+
 ## Requirments
 
 OS Requirements
