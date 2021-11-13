@@ -35,7 +35,7 @@ Install from Github
 
 ```shell
 # download repository by git
-git clone git@github.com:WeilabMSU/PretrainModels.git
+git clone https://github.com/WeilabMSU/PretrainModels.git
 
 cd PretrainModels/bt_pro
 python setup.py build_ext --inplace
