@@ -27,6 +27,7 @@ Python Dependencies
 - scikit-learn (0.23.2)
 - scipy (1.5.2)
 - pandas (0.25.3)
+- cython (0.29.17)
 
 
 ## Installation Guide
