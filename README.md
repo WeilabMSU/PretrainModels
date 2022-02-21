@@ -143,7 +143,7 @@ CUDA_VISIBLE_DEVICES=0 python "./bt_pro/train.py" \  # if just want to run in cp
 cp "./examples/models/dict.txt" "./examples/data/regression_example/"
 python "./bt_pro/generate_bt_fps.py" \
  --model_name_or_path './examples/models/finetuned_model_regression/' \  # the path of foler, which contains pre-trained model
- --checkpoint_file "checkpoint_best.pt" \  # the name of pre-trained model
+ --checkpoint_file "checkpoint_best.pt" \  # the name of fine-tuned model
  --data_name_or_path  "./examples/data/regression_example/" \  # the folder contains input0
  --dict_file "./examples/data/regression_example/dict.txt" \  #  can just use the pretrained dict.txt
  --target_file "./examples/data/regression_example/regression_train_canonical.smi" \  # the path of target downstream dataset
@@ -151,7 +151,7 @@ python "./bt_pro/generate_bt_fps.py" \
  
 python "./bt_pro/generate_bt_fps.py" \
  --model_name_or_path './examples/models/finetuned_model_regression/' \  # the path of foler, which contains pre-trained model
- --checkpoint_file "checkpoint_best.pt" \  # the name of pre-trained model
+ --checkpoint_file "checkpoint_best.pt" \  # the name of fine-tuned model
  --data_name_or_path  "./examples/data/regression_example/" \  # the folder contains input0
  --dict_file "./examples/data/regression_example/dict.txt" \  #  can just use the pretrained dict.txt
  --target_file "./examples/data/regression_example/regression_valid_canonical.smi" \
@@ -224,7 +224,7 @@ CUDA_VISIBLE_DEVICES=0 python "./bt_pro/train.py" \  # if just want to run in cp
 cp "./examples/models/dict.txt" "./examples/data/classification_example/"
 python "./bt_pro/generate_bt_fps.py" \
  --model_name_or_path './examples/models/finetuned_model_classification/' \  # the path of foler, which contains pre-trained model
- --checkpoint_file "checkpoint_best.pt" \  # the name of pre-trained model
+ --checkpoint_file "checkpoint_best.pt" \  # the name of fine-tuned model
  --data_name_or_path  "./examples/data/classification_example/" \  # the folder contains input0
  --dict_file "./examples/data/classification_example/dict.txt" \  #  can just use the pretrained dict.txt
  --target_file "./examples/data/classification_example/classification_train_canonical.smi" \  # the path of target downstream dataset
@@ -232,7 +232,7 @@ python "./bt_pro/generate_bt_fps.py" \
  
 python "./bt_pro/generate_bt_fps.py" \
  --model_name_or_path './examples/models/finetuned_model_classification/' \  # the path of foler, which contains pre-trained model
- --checkpoint_file "checkpoint_best.pt" \  # the name of pre-trained model
+ --checkpoint_file "checkpoint_best.pt" \  # the name of fine-tuned model
  --data_name_or_path  "./examples/data/classification_example/" \  # # the folder contains input0
  --dict_file "./examples/data/classification_example/dict.txt" \  #  can just use the pretrained dict.txt
  --target_file "./examples/data/classification_example/classification_valid_canonical.smi" \
