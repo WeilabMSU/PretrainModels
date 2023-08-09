@@ -39,6 +39,9 @@ Install from Github
 git clone https://github.com/WeilabMSU/PretrainModels.git
 
 cd PretrainModels/bt_pro
+mkdir bt_pro
+mkdir bt_pro/fairseq
+mkdir bt_pro/fairseq/data
 python setup.py build_ext --inplace
 mv ./bt_pro/fairseq/data/* ./fairseq/data/
 ```
