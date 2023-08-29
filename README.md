@@ -12,6 +12,31 @@ Source code of the paper "Extracting Predictive Representations from Hundreds of
 
 ---
 
+## <span style="color: red;">New interface (update: 08-2023) </span> 
+
+> New Feature: If you're trying to get molecular features based on deep networks directly, the following process eliminates the need to compile the code base.
+
+Python Dependencies (Higher version should be find):
+  - python                    3.9.12
+  - pytorch                   1.13.1
+  - fairseq                   0.12.2
+  - numpy                     1.21.5
+
+> Once python's dependece is satisfied, there is no need to compile the entire code base.
+
+```shell
+# Pre-trained model
+wget https://weilab.math.msu.edu/Downloads/chembl_pubchem_zinc_models.zip
+unzip chembl_pubchem_zinc_models.zip
+
+# generate the feature
+# '--feature_type': 'bos' for the begin of sequence symbol's embedding; 'avg' for the average of the all symbols embedding.
+python "./bt_pro/generate_bt_fps_new.py" --model_name_or_path "./examples/models/" --checkpoint_file "checkpoint_best.pt" --smi_file "./examples/data/example_train_canonical.smi" --save_feature_path "./examples/BT_FPs/examples_bt_train_features.npy" --feature_type bos
+```
+
+---
+---
+
 ## Requirments
 
 OS Requirements
