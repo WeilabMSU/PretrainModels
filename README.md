@@ -10,29 +10,34 @@ Source code of the paper "Extracting Predictive Representations from Hundreds of
 
 [toc]
 
+
 ---
+## <span style="color: red;">Notes (update: 01-2025) </span> 
 
-## <span style="color: red;">New interface (update: 08-2023) </span> 
+Due to conflicts with the new versions of dependencies such as NumPy, Fairseq, and the installation tool Pip, the interface updated in August 2023 has been deprecated. However, the original process remains functional.
 
-> New Feature: If you're trying to get molecular features based on deep networks directly, the following process eliminates the need to compile the code base.
 
-Python Dependencies (Higher version should be find):
-  - python                    3.9.12
-  - pytorch                   1.13.1
-  - fairseq                   0.12.2
-  - numpy                     1.21.5
+## ~~New interface (update: 08-2023)~~
 
-> Once python's dependece is satisfied, there is no need to compile the entire code base.
+~~> New Feature: If you're trying to get molecular features based on deep networks directly, the following process eliminates the need to compile the code base.~~
 
-```shell
-# Pre-trained model
-wget https://weilab.math.msu.edu/Downloads/chembl_pubchem_zinc_models.zip
-unzip chembl_pubchem_zinc_models.zip
+~~Python Dependencies (Higher version should be find):~~
+~~  - python                    3.9.12~~
+~~  - pytorch                   1.13.1~~
+~~  - fairseq                   0.12.2~~
+~~  - numpy                     1.21.5~~
 
-# generate the feature
-# '--feature_type': 'bos' for the begin of sequence symbol's embedding; 'avg' for the average of the all symbols embedding.
-python "./bt_pro/generate_bt_fps_new.py" --model_name_or_path "./examples/models/" --checkpoint_file "checkpoint_best.pt" --smi_file "./examples/data/example_train_canonical.smi" --save_feature_path "./examples/BT_FPs/examples_bt_train_features.npy" --feature_type bos
-```
+~~> Once python's dependece is satisfied, there is no need to compile the entire code base.~~
+
+~~```shell~~
+~~# Pre-trained model~~
+~~wget https://weilab.math.msu.edu/Downloads/chembl_pubchem_zinc_models.zip~~
+~~unzip chembl_pubchem_zinc_models.zip~~
+
+~~# generate the feature~~
+~~# '--feature_type': 'bos' for the begin of sequence symbol's embedding; 'avg' for the average of the all symbols embedding.~~
+~~python "./bt_pro/generate_bt_fps_new.py" --model_name_or_path "./examples/models/" --checkpoint_file "checkpoint_best.pt" --smi_file "./examples/data/example_train_canonical.smi" --save_feature_path "./examples/BT_FPs/examples_bt_train_features.npy" --feature_type bos~~
+~~```~~
 
 ---
 ---
@@ -44,11 +49,11 @@ OS Requirements
 
 Python Dependencies
 - setuptools (>=18.0)
-- python (>=3.7)
+- python (3.7，3.9)
 - pytorch (>=1.2)
 - rdkit (2020.03)
 - biopandas (0.2.7)
-- numpy (1.17.4)
+- numpy (1.17.4, 1.19.*)
 - scikit-learn (0.23.2)
 - scipy (1.5.2)
 - pandas (0.25.3)
