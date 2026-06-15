@@ -138,7 +138,7 @@ def parse_args() -> argparse.Namespace:
         "--feature-type",
         choices=["bos", "avg"],
         default="bos",
-        help="Pooling method: 'bos' matches bt_pro/generate_bt_fps.py; 'avg' averages tokens.",
+        help="Pooling method: 'bos' uses the first-token BT-FP; 'avg' averages tokens.",
     )
     parser.add_argument(
         "--batch-size",

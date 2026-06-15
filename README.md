@@ -16,7 +16,6 @@ examples/data/           Example SMILES and label files
 chembl27_512/            Pretrained checkpoint and dictionary
 chembl27_pubchem_512/    Pretrained checkpoint and dictionary
 chembl27_pubchem_zinc_512/
-bt_pro/                  Legacy Fairseq-based code kept for reproduction only
 ```
 
 The maintained workflow does **not** require Fairseq or Transformers.
@@ -89,8 +88,7 @@ number_of_non_empty_smiles x 512
 
 Feature pooling options:
 
-- `bos`: first-token hidden state. This matches the original
-  `bt_pro/generate_bt_fps.py` behavior.
+- `bos`: first-token hidden state. This is the recommended BT-FP representation.
 - `avg`: average hidden state over non-padding tokens.
 
 To use a different pretrained model:
@@ -144,18 +142,6 @@ python scripts/extract_fingerprints.py \
   --feature-type bos
 ```
 
-## Legacy Fairseq Code
-
-`bt_pro/` contains the original vendored Fairseq training code used by the
-previous project. It is kept for paper reproduction and historical fine-tuning
-experiments, but it is no longer part of the default installation path. New
-feature extraction and model selection should use `bt_fps/` and `scripts/`.
-
-The new extractor was checked against the old `bt_pro/generate_bt_fps.py`
-outputs for the provided checkpoints; differences are at normal float precision
-level.
-
 ## License
 
 All code released in this study is under the MIT License.
-
